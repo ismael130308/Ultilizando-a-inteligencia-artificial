@@ -85,8 +85,13 @@ let perguntaAtual;
 let historyFinal = "";
 
 function mostraPerunta(){
+    if (atual >= perguntas.length){
+        mostraRsultado();
+        return;
+    }
     perguntaAtual = pegunt[atual];
-    caixaPeruntas.textContent = perguntaAtual.enunciado;
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = "";
     mostraAlternativas();
 }
 
@@ -110,7 +115,7 @@ function respostaSelecionada(opicaoSelecionada){
 function mostraRsultado(){
     caixaPerguntas.textContent = "Em 2049...";
     textoResultado.textContent = historyFinal;
-    caixaAlternativas.textContent = "";
+    caixaAlternativas.textContent = " ";
 }
 
 mostraPergunta();
